@@ -1,4 +1,4 @@
-module.exports.run = async (bot, data, msg) => {
+module.exports.run = async (bot, message, args, tools, data) => {
 	// Variables
 	
 	// Code
