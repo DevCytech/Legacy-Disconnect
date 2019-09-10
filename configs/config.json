@@ -1,0 +1,48 @@
+{
+	"info": {
+		"bot": {
+			"name": "",
+			"description": ""
+		},
+		"links": {
+			"botInvite": {
+				"short": "http://bit.ly/InviteDisconnect",
+				"long": "https://discordapp.com/oauth2/authorize?client_id=576160626095685632&scope=bot&permissions=2146958847"
+			},
+			"supportServer": {
+				"link": "https://discord.gg/RJBm6Ka",
+				"code": "RJBm6Ka"
+			},
+			"website": {
+				"link": "Coming Soon!",
+				"donation": "Coming Soon!",
+				"commandList": "Coming Soon!"
+			}
+		},
+		"activity": {
+			"type": "1",
+			"game": "for things to say!",
+			"status": "1"
+		}
+	},
+	"staff": {
+		"creator": "190612497848336384",
+		"developers": ["190612497848336384"],
+		"testers": ""
+	},
+	"colors": {
+		"fun": "F40C75",
+		"main": "0CAAF4",
+		"game": "0CF4A3",
+		"error": "F4350C",
+		"regular": "0C33F4",
+		"success": "0CF41A",
+		"warning": "F4DF0C",
+		"secondary": "0C80F4"
+	},
+	"settings": {
+		"prefix": "?",
+		"version": "1.0.0",
+		"restriction": "0"
+	}
+}
