@@ -28,7 +28,7 @@
 	"staff": {
 		"creator": "190612497848336384",
 		"developers": ["190612497848336384"],
-		"testers": ""
+		"testers": []
 	},
 	"colors": {
 		"fun": "F40C75",
@@ -43,6 +43,6 @@
 	"settings": {
 		"prefix": "?",
 		"version": "1.0.0",
-		"restriction": "0"
+		"restriction": "1"
 	}
 }
