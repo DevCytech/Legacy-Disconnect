@@ -14,7 +14,8 @@ module.exports.config = {
 	},
 	info: {
 		name: '',
-		ussage: '',
+		usage: '',
+		aliases: '',
 		description: ''
 	},
 	module: {
