@@ -1,4 +1,4 @@
-module.exports.run = async (bot, message, args, tools, data) => {
+module.exports.run = async (bot, message, args, data) => {
 	// Variables
 
 	// Code
@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args, tools, data) => {
 
 module.exports.config = {
 	cmd: {
-		main: '',
+		main: 'test',
 		aliases: []
 	},
 	info: {

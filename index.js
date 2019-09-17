@@ -1,8 +1,7 @@
-const { node, creds, managers } = require('./lib/utilities'),
-	discord = node.discord,
+const { discord, creds, commandManager } = require('./lib/utilities'),
 	bot = new discord.Client({ disabledEveryone: true });
 
-managers.commands(bot);
+commandManager(bot, discord);
 bot.tools = require('./lib/utilities');
 
 bot.login(creds.token);

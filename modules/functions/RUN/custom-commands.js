@@ -1,5 +1,5 @@
-module.exports = function(message, tools, cmd) {
-	const { config, discord } = tools;
+module.exports = function(bot, message, cc) {
+	const { config, discord } = bot.tools;
 
 	const e = new discord.RichEmbed()
 		.setTitle(cmd.name)

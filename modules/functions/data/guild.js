@@ -1,6 +1,5 @@
 module.exports = async (bot, message) => {
-	const { guildStrut } = bot.tools.schema,
-		config = bot.tools.config;
+	const { guildStrut, config } = bot.tools;
 	let settings = {};
 
 	try {
@@ -22,12 +21,12 @@ module.exports = async (bot, message) => {
 			},
 			custom: {
 				enabled: false,
-				commands: Array
+				commands: []
 			},
 			roles: {
-				muted: String,
-				mod: Array,
-				dj: Array
+				muted: '',
+				mod: [],
+				dj: []
 			},
 			level: {
 				enabled: true,
@@ -50,7 +49,7 @@ module.exports = async (bot, message) => {
 				}
 			}
 		});
-		newConfig.save;
+		newConfig.save();
 		settings = newConfig;
 	}
 

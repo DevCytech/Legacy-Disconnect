@@ -1,6 +1,5 @@
 module.exports = async (bot, message, svr) => {
-	const { userGlobalStrut, userGuildStruts } = bot.tools.schema,
-		config = bot.tools.config;
+	const { userGuildStrut, userGlobalStrut, config } = bot.tools;
 	let public = {},
 		server = {};
 
@@ -14,7 +13,7 @@ module.exports = async (bot, message, svr) => {
 	if (public == undefined || public == null) {
 		let newConfig = new userGlobalStrut({
 			id: message.author.id,
-			name: message.author.name,
+			name: message.author.username,
 			review: [],
 			crystals: 0,
 			premium: {
@@ -23,7 +22,7 @@ module.exports = async (bot, message, svr) => {
 				purchased: []
 			}
 		});
-		newConfig.save;
+		newConfig.save();
 		public = newConfig;
 	}
 
@@ -40,7 +39,7 @@ module.exports = async (bot, message, svr) => {
 	if (server == undefined || server == null) {
 		let newConfig = new userGuildStrut({
 			id: message.author.id,
-			name: message.author.name,
+			name: message.author.username,
 			guild: message.guild.id,
 			eco: {
 				cash: parseInt(svr.main.eco.default.cash),
@@ -54,11 +53,10 @@ module.exports = async (bot, message, svr) => {
 				level: 0
 			}
 		});
-		newConfig.save;
+		newConfig.save();
 		server = newConfig;
 	}
 
 	let data = { global: public, guild: server };
-
 	return data;
 };

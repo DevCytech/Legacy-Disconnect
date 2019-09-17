@@ -1,14 +1,12 @@
 module.exports = async (bot, message) => {
-	const { discord } = bot.tools.node,
-		{ user, guild } = bot.tools.database;
+	const { userData, guildData } = bot.tools;
 	let data = {},
 		srv = {},
-		user = {};
+		person = {};
 
-	srv = await guild(bot, message);
-	user = await user(bot, message, srv);
+	srv = await guildData(bot, message);
+	person = await userData(bot, message, srv);
 
-  data = { guild: srv, person = user }
-  
+	data = { guild: srv, person: person };
 	return data;
 };
