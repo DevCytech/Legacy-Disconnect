@@ -61,7 +61,7 @@ module.exports.config = {
 	},
 	info: {
 		name: 'Command Information',
-		usage: 'command-information',
+		usage: 'command-information <command>',
 		aliases: 'command-help, help-command',
 		description: 'Get help with some of the commands.'
 	},
