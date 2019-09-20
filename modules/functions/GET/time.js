@@ -1,4 +1,4 @@
-  module.exports = function getTime() {
+module.exports = function getTime() {
 	let date = new date();
 
 	if (date.getHours() >= 13) {

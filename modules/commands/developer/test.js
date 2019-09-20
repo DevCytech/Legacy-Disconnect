@@ -10,21 +10,21 @@ module.exports.run = async (bot, message, args, data) => {
 module.exports.config = {
 	cmd: {
 		main: 'test',
-		aliases: []
+		aliases: ['t']
 	},
 	info: {
-		name: '',
-		usage: '',
-		aliases: '',
-		description: ''
+		name: 'Testing Command',
+		usage: 'test',
+		aliases: 't',
+		description: 'Test the currently WIP Command!'
 	},
 	module: {
-		main: '',
-		sub: ''
+		main: 'developer',
+		sub: 'testing'
 	},
 	settings: {
-		restrictions: '0', // 0 - Everyone, 1 - Admin, 2 - Guild Owner, 3 - Dev Team
-		premium: false,
+		restrictions: '03', // 0 - Everyone, 1 - Admin, 2 - Guild Owner, 3 - Dev Team
+		premium: true,
 		permissions: {
 			bot: ['SEND_MESSAGES'],
 			user: []

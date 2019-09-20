@@ -26,7 +26,8 @@ bot.on('message', async message => {
 			.trim()
 			.split(' '),
 		cmd = args.shift().toLowerCase(),
-		command;
+		command,
+		tools = bot.tools;
 
 	// Delete Empty Space Args
 	for (var i = 0, l = args.length; i < l; i++) {
@@ -52,5 +53,5 @@ bot.on('message', async message => {
 	}
 
 	// If There is a Command
-	return command.run(bot, message, args, data);
+	if (command) return command.run(bot, message, args, tools, data);
 });
