@@ -1,5 +1,5 @@
 module.exports = function(message, text) {
-	const { discord, config } = require('../../lib/utils');
+	const { discord, config } = require('../../../lib/utilities');
 	let errorTime = getTime();
 	const e = new discord.RichEmbed()
 		.setTitle('An error has occurred.')

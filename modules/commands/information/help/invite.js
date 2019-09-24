@@ -36,12 +36,12 @@ module.exports.run = async (bot, message, args, tools, data) => {
 module.exports.config = {
 	cmd: {
 		main: 'invite',
-		aliases: []
+		aliases: ['server-invite', 'support-server', 'guild-invite', 'bot-invite']
 	},
 	info: {
 		name: 'Invite',
 		usage: 'invite',
-		aliases: '',
+		aliases: 'guild-invite, support-server, and bot-invite',
 		description: 'Get a invite link for your server and a '
 	},
 	module: {
