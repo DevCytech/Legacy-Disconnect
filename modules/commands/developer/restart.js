@@ -1,16 +1,15 @@
 module.exports.run = async (bot, message, args, tools, data) => {
 	// Variables
-  const { discord, config, creds } = tools
+	const { discord, config, creds } = tools;
 	// Code
-  if (message.author.id !== config.botInfo.creator.ID) return;
 	message.channel
 		.send('Restarting...')
 		.then(console.clear())
 		.then(msg => bot.destroy())
 		.then(() => bot.login(creds.token))
+		.then(console.log('Bot Restarted' + ` with ${bot.commands.size} commands.`))
 		.then(message.channel.send('Bot Restarted!'))
-    .then(require(../../../../lib/database));
-	// Functions
+		.then(require('../../../lib/database'));
 };
 
 module.exports.config = {
