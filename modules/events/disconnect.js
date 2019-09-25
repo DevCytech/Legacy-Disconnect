@@ -1,6 +1,6 @@
 const { bot } = require('../../index');
 
-bot.on('warn', async event => {
+bot.on('disconnect', async event => {
   const { config, discord } = bot.tools
   
   const e = new discord.RichEmbed()
