@@ -3,7 +3,7 @@
 ## Table of Context
 
 1. [Events](#eventTemp)
-2. [Methods](#methodTemp)
+2. [Methods and Functions](#methodTemp)
 3. [Command](#cmdTemp)
 4. [Database](#dataTemp)
    1. [Guild](#)
@@ -17,11 +17,18 @@
       4. [Inventory](#)
    3. [Bot](#)
       1. [Keys](#)
-5. [Functions](#funcTemp)
 
 ### Events <a name="eventTemp"></a>
+```js
+const { bot } = require('../../index');
+
+bot.on('', async variable => {});
+```
 
 ### Methods <a name="methodTemp"></a>
+```js
+module.exports = async function(variables) {}
+```
 
 ### Commands <a name="cmdTemp"></a>
 
@@ -59,5 +66,3 @@ module.exports.config = {
 ```
 
 ### Database <a name="dataTemp"></a>
-
-### Functions <a name="funcTemp"></a>
