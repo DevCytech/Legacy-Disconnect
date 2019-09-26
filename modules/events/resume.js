@@ -1,14 +1,16 @@
-onst { bot } = require('../../index');
+const { bot } = require('../../index');
 
 bot.on('resume', async replayed => {
-  const { config, discord } = bot.tools
-  
-  const e = new discord.RichEmbed()
-    .setTitle('🎶 Resuming!')
-    .setColor(config.colors.success)
-    .setDescription('Resuming! ' + replayed)
-    .setFooter(getTime())
-  return bot.channels.get("id", config.consoleAux).send(e);
+	const { config, discord } = bot.tools;
+
+	const e = new discord.RichEmbed()
+		.setTitle('🎶 Resuming!')
+		.setColor(config.colors.success)
+		.setDescription('Resuming! ' + replayed)
+		.setFooter(getTime());
+	var channel = bot.channels.get('622619858600984586');
+	if (channel == undefined || channel == null) return;
+	channel.send(e);
 });
 
 function getTime() {

@@ -1,14 +1,16 @@
 const { bot } = require('../../index');
 
 bot.on('debug', async info => {
-	const { config, discord } = bot.tools
-  
-  const e = new discord.RichEmbed()
-    .setTitle('Debug Information')
-    .setColor(config.colors.regular)
-    .setDescription(info)
-    .setFooter(getTime())
-  return bot.channels.get("id", config.console).send(e);
+	const { config, discord } = bot.tools;
+
+	const e = new discord.RichEmbed()
+		.setTitle('Debug Information')
+		.setColor(config.colors.regular)
+		.setDescription(info)
+		.setFooter(getTime());
+	var channel = bot.channels.get('622619858600984586');
+	if (channel == undefined || channel == null) return;
+	channel.send(e);
 });
 
 function getTime() {
