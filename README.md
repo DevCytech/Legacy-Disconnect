@@ -20,8 +20,3 @@ Disconnect is a new discord bot looking to make life simpler (The point of every
 - Game Stats
 - Utility
 - and much more..
-  
-  
-
-
-This is the never version of Disconnect being built and shared. Once this code is done I will also add a repository to the old code!
