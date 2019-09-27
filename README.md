@@ -12,11 +12,11 @@ Disconnect is a new discord bot looking to make life simpler (The point of every
 **Website**: Coming Soon!
 
 ## Features
-- Music
-- Moderation
-- Fun and Games
-- Economy System
-- Leveling System
-- Game Stats
-- Utility
-- and much more..
+  - Music
+  - Moderation
+  - Fun and Games
+  - Economy System
+  - Leveling System
+  - Game Stats
+  - Utility
+  - and much more..
