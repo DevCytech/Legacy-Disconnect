@@ -47,6 +47,9 @@ module.exports = async (bot, message) => {
 					bank: 0,
 					cash: 0
 				}
+			},
+			settings: {
+				adminRestriction: 0
 			}
 		});
 		newConfig.save();

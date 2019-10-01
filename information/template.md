@@ -19,6 +19,7 @@
       1. [Keys](#)
 
 ### Events <a name="eventTemp"></a>
+
 ```js
 const { bot } = require('../../index');
 
@@ -26,8 +27,9 @@ bot.on('', async variable => {});
 ```
 
 ### Methods <a name="methodTemp"></a>
+
 ```js
-module.exports = async function(variables) {}
+module.exports = async function(variables) {};
 ```
 
 ### Commands <a name="cmdTemp"></a>
@@ -55,6 +57,7 @@ module.exports.config = {
 		sub: ''
 	},
 	settings: {
+		dm: false,
 		restrictions: 0, // 0 - Everyone, 1 - Admin, 2 - Guild Owner, 3 - Dev Team
 		premium: false,
 		permissions: {

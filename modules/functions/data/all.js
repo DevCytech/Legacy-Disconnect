@@ -4,9 +4,16 @@ module.exports = async (bot, message) => {
 		srv = {},
 		person = {};
 
-	srv = await guildData(bot, message);
-	person = await userData(bot, message, srv);
+	if (message.channel.type == 'dm') {
+		person = await userData(bot, message, srv);
 
-	data = { guild: srv, person: person };
+		data = { person: person };
+	} else {
+		srv = await guildData(bot, message);
+		person = await userData(bot, message, srv);
+
+		data = { guild: srv, person: person };
+	}
+
 	return data;
 };

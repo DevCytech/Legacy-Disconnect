@@ -27,36 +27,40 @@ module.exports = async (bot, message, svr) => {
 	}
 
 	/* GUILD */
-	try {
-		server = await userGuildStrut.findOne({
-			id: message.author.id,
-			guild: message.guild.id
-		});
-	} catch (err) {
-		console.log(err);
-	}
+	if (message.channel.type !== 'dm') {
+		try {
+			server = await userGuildStrut.findOne({
+				id: message.author.id,
+				guild: message.guild.id
+			});
+		} catch (err) {
+			console.log(err);
+		}
 
-	if (server == undefined || server == null) {
-		let newConfig = new userGuildStrut({
-			id: message.author.id,
-			name: message.author.username,
-			guild: message.guild.id,
-			eco: {
-				cash: parseInt(svr.main.eco.default.cash),
-				bank: parseInt(svr.main.eco.default.bank),
-				net:
-					parseInt(svr.main.eco.default.cash) +
-					parseInt(svr.main.eco.default.bank)
-			},
-			level: {
-				xp: 0,
-				level: 0
-			}
-		});
-		newConfig.save();
-		server = newConfig;
+		if (server == undefined || server == null) {
+			let newConfig = new userGuildStrut({
+				id: message.author.id,
+				name: message.author.username,
+				guild: message.guild.id,
+				eco: {
+					cash: parseInt(svr.main.eco.default.cash),
+					bank: parseInt(svr.main.eco.default.bank),
+					net:
+						parseInt(svr.main.eco.default.cash) +
+						parseInt(svr.main.eco.default.bank)
+				},
+				level: {
+					xp: 0,
+					level: 0
+				}
+			});
+			newConfig.save();
+			server = newConfig;
+		}
+		let data = { global: public, guild: server };
+		return data;
+	} else {
+		let data = { global: public };
+		return data;
 	}
-
-	let data = { global: public, guild: server };
-	return data;
 };

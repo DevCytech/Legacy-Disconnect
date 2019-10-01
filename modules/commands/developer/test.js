@@ -1,4 +1,4 @@
-module.exports.run = async (bot, message, args, data) => {
+module.exports.run = async (bot, message, args, tools, data) => {
 	// Variables
 
 	// Code
@@ -23,8 +23,9 @@ module.exports.config = {
 		sub: 'testing'
 	},
 	settings: {
-		restrictions: '03', // 0 - Everyone, 1 - Admin, 2 - Guild Owner, 3 - Dev Team
-		premium: true,
+		dm: false,
+		restrictions: 3, // 0 - Everyone, 1 - Admin, 2 - Guild Owner, 3 - Dev Team
+		premium: false,
 		permissions: {
 			bot: ['SEND_MESSAGES'],
 			user: []

@@ -1,7 +1,14 @@
 const { bot } = require('../../index');
 
 bot.on('message', async message => {
-	const { config, allData } = bot.tools;
+	if (message.author.bot) return;
+	const {
+		config,
+		allData,
+		checkPermissions,
+		checkPremium,
+		manageDM
+	} = bot.tools;
 
 	if (
 		config.settings.restriction == 1 &&
@@ -19,15 +26,21 @@ bot.on('message', async message => {
 	}
 
 	// Variables
+	let prefix;
 	let data = await allData(bot, message); // Data Format { guild, userGlobal, userGuild }
-	let prefix = data.guild.main.prefix;
+	if (message.channel.type !== 'dm') {
+		prefix = data.guild.main.prefix;
+	} else {
+		prefix = config.settings.prefix;
+	}
 	let args = message.content
 			.slice(prefix.length)
 			.trim()
 			.split(' '),
 		cmd = args.shift().toLowerCase(),
 		command,
-		tools = bot.tools;
+		tools = bot.tools,
+		val;
 
 	// Delete Empty Space Args
 	for (var i = 0, l = args.length; i < l; i++) {
@@ -40,16 +53,22 @@ bot.on('message', async message => {
 	// Define the command
 	command = bot.commands.get(cmd) || bot.commands.get(bot.aliases.get(cmd));
 
-	// Custom Command Handler
-	if (data.guild.main.custom.enabled == true) {
-		if (
-			data.guild.main.custom.commands == null ||
-			data.guild.main.custom.commands.length
-		)
-			return;
-		data.guild.main.custom.commands.forEach(cc => {
-			if (cc.cmd == cmd) return bot.tools.functions.runCC(bot, message, cc);
-		});
+	// Custom Commands *Not Working Rework needed
+
+	// Pre Command Chechs
+	if (message.channel.type !== 'dm') {
+		if (!command) return;
+		let test1 = await checkPermissions(bot, message, command, tools, data);
+		let test2 = await checkPremium(bot, message, command, tools, data);
+		if (test1 !== undefined || test2 !== undefined) {
+			if (test1 === 'stop') return;
+			if (test2 === 'stop') return;
+		}
+	} else {
+		let test3 = await manageDM(bot, message, command, tools, data);
+		if (test3 !== undefined) {
+			if (test3 === 'stop') return;
+		}
 	}
 
 	// If There is a Command

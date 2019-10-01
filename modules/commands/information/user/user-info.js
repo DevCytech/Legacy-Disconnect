@@ -1,28 +1,47 @@
 module.exports.run = async (bot, message, args, tools, data) => {
 	// Variables
-	const { discord } = tools;
-	// Code
+	const { discord, config } = tools;
 	let user = message.mentions.users.first() || message.author;
-	const muser = message.guild.member(user);
+	let member = message.guild.member(user);
 
+	let types = {
+		online: bot.emojis.get('628007152925147137'),
+		offline: bot.emojis.get('628007152950181921'),
+		dnd: bot.emojis.get('628007152585408514'),
+		idle: bot.emojis.get('628007152945987604'),
+		streaming: bot.emojis.get('628007153231331338')
+	};
+
+	let badges = ``,
+		nitro,
+		botStaff,
+		botOwner;
+
+	// Code
 	const e = new discord.RichEmbed()
-		.setTitle(user.username + `' Information`)
-		.setColor(muser.displayColor)
-		.setThumbnail(user.avatarURL);
-	if (!muser.displayName == user.username) {
-		e.addField('Display Name', muser.displayName, true);
-	}
-	e.addField('Username', user.username, true)
-		.addField('Discriminator', user.discriminator, true)
-		.addField('Discord tag', user.tag, true)
-		.addField('ID', user.id, true)
-		.addField('Status', user.presence.status, true)
+		.setTitle(`${user.username}'s Information`)
+		.setColor(member.displayColor)
+		.setThumbnail(user.avatarURL)
+		.addField('User', `${member.displayName}, ${user.id}, ${user.tag}`);
+	if (user.presence.status !== 'offline')
+		e.addField(
+			'Status',
+			`${types[user.presence.status]} ${
+				user.presence.game ? user.presence.game.name : 'None'
+			}`
+		);
+	e.addField(
+		'Economy',
+		`:moneybag: Cash $${data.person.guild.eco.cash}, :bank: Bank: $${
+			data.person.guild.eco.bank
+		}, ${bot.emojis.get('628022021019795487')} Net Worth: $${
+			data.person.guild.eco.net
+		}`
+	)
 		.addField(
-			'Game',
-			user.presence.game ? user.presence.game.name : 'None',
-			true
+			'Experience',
+			`Experience: ${data.person.guild.level.xp}, Level: ${data.person.guild.level.level}`
 		)
-		.addField('Highest Role', muser.highestRole, true)
 		.addField(
 			'Account Created',
 			`${user.createdAt.toUTCString().substr(0, 16)} - ${checkDays(
@@ -32,19 +51,16 @@ module.exports.run = async (bot, message, args, tools, data) => {
 		)
 		.addField(
 			'Joined Server',
-			`${muser.joinedAt.toUTCString().substr(0, 16)} (${checkDays(
-				muser.joinedAt
-			)})`,
+			`${member.joinedAt.toUTCString().substr(0, 16)} - ${checkDays(
+				member.joinedAt
+			)}`,
 			true
 		)
-		.addField(
-			'Roles',
-			muser.roles.map(roles => `${roles.name}`).join(', @'),
-			true
-		)
+		.addField('Roles', member.roles.map(roles => `${roles}`).join(', '), true)
 		.setFooter(user.tag + `'s Information`, user.avatarURL);
 	return message.channel.send(e);
 
+	// Functions
 	function checkDays(date) {
 		let now = new Date();
 		let diff = now.getTime() - date.getTime();
@@ -56,19 +72,20 @@ module.exports.run = async (bot, message, args, tools, data) => {
 module.exports.config = {
 	cmd: {
 		main: 'user-info',
-		aliases: ['whois']
+		aliases: ['user-information']
 	},
 	info: {
 		name: 'User Information',
 		usage: 'user-info [@user]',
-		aliases: 'whois',
-		description: 'Get information on yourself or a fellow discord user.'
+		aliases: '',
+		description: 'Get information about a user in your guild.'
 	},
 	module: {
 		main: 'information',
 		sub: 'user'
 	},
 	settings: {
+		dm: false,
 		restrictions: 0, // 0 - Everyone, 1 - Admin, 2 - Guild Owner, 3 - Dev Team
 		premium: false,
 		permissions: {
