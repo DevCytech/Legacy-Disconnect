@@ -2,21 +2,21 @@
 
 ## Table of Context
 
-1. [Events](#eventTemp)
-2. [Methods and Functions](#methodTemp)
-3. [Command](#cmdTemp)
-4. [Database](#dataTemp)
-   1. [Guild](#)
-      1. [Logs](#)
-      2. [Store](#)
-      3. [Rewards](#)
-   2. [Users](#)
-      1. [Global](#)
-      2. [Guilds](#)
-      3. [Reviews](#)
-      4. [Inventory](#)
-   3. [Bot](#)
-      1. [Keys](#)
+ 1. [Events](#eventTemp)
+ 2. [Methods and Functions](#methodTemp)
+ 3. [Command](#cmdTemp)
+ 4. [Database](#dataTemp)
+    1. [Guild](#)
+       1. [Logs](#)
+       2. [Store](#)
+       3. [Rewards](#)
+    2. [Users](#)
+       1. [Global](#)
+       2. [Guilds](#)
+       3. [Reviews](#)
+       4. [Inventory](#)
+    3. [Bot](#)
+       1. [Keys](#)
 
 ### Events <a name="eventTemp"></a>
 
