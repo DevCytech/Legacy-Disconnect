@@ -7,8 +7,8 @@ module.exports.run = async (bot, message, args, tools, data) => {
 	const e = new discord.RichEmbed()
 		.setTitle(`${message.guild.member(user).displayName}'s Avatar`)
 		.setColor(message.guild.member(user).displayColor)
-		.setDescription(`image url: ${user.avatarURL}`)
-		.setImage(user.avatarURL);
+		.setImage(user.avatarURL)
+		.setFooter('To get url click the image and press "Open Original"');
 	return message.channel.send(e);
 	// Functions
 };

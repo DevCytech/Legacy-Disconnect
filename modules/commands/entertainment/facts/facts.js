@@ -1,30 +1,34 @@
 module.exports.run = async (bot, message, args, tools, data) => {
 	// Variables
-	const { config, discord, superagent } = tools;
+	const { discord, config, superagent } = tools;
+	let res = await superagent.get(
+		'https://uselessfacts.jsph.pl/random.json?language=en'
+	);
+
 	// Code
-	let image = await superagent.get('https://some-random-api.ml/img/panda');
 	const e = new discord.RichEmbed()
-		.setTitle('Random Panda!')
+		.setTitle('Fun Fact.')
 		.setColor(config.colors.secondary)
-		.setImage(image.body.link);
-	message.channel.send(e);
+		.setDescription(res.body.text)
+		.setFooter(`Fact ID: ${res.body.id}`);
+	return message.channel.send(e);
 	// Functions
 };
 
 module.exports.config = {
 	cmd: {
-		main: 'panda',
-		aliases: []
+		main: 'fun-fact',
+		aliases: ['fact']
 	},
 	info: {
-		name: 'Panda',
-		usage: 'panda',
-		aliases: '',
-		description: 'Get a random picture of a panda.'
+		name: 'Fun Fact',
+		usage: 'fun-fact',
+		aliases: 'fact',
+		description: 'Get a random fun fact.'
 	},
 	module: {
 		main: 'entertainment',
-		sub: 'animals'
+		sub: 'facts'
 	},
 	settings: {
 		dm: false,

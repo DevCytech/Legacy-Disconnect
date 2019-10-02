@@ -2,29 +2,32 @@ module.exports.run = async (bot, message, args, tools, data) => {
 	// Variables
 	const { config, discord, superagent } = tools;
 	// Code
-	let image = await superagent.get('https://some-random-api.ml/img/panda');
+	let image = await superagent
+		.get('https://nekobot.xyz/api/image')
+		.query({ type: 'kanna' });
 	const e = new discord.RichEmbed()
-		.setTitle('Random Panda!')
+		.setTitle('Kanna!')
 		.setColor(config.colors.secondary)
-		.setImage(image.body.link);
+		.setImage(image.body.message);
 	message.channel.send(e);
 	// Functions
 };
 
 module.exports.config = {
 	cmd: {
-		main: 'panda',
+		main: 'kanna',
 		aliases: []
 	},
 	info: {
-		name: 'Panda',
-		usage: 'panda',
+		name: 'Kanna',
+		usage: 'kanna',
 		aliases: '',
-		description: 'Get a random picture of a panda.'
+		description:
+			'Get a random image of Kobayashi Kanna from Kobayashi-san Chi no Maid Dragon: Kanna no Nichijou.'
 	},
 	module: {
 		main: 'entertainment',
-		sub: 'animals'
+		sub: 'images'
 	},
 	settings: {
 		dm: false,

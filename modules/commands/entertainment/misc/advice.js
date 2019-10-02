@@ -1,34 +1,34 @@
 module.exports.run = async (bot, message, args, tools, data) => {
 	// Variables
-	const { config, discord, superagent } = tools;
+	const { discord, config, superagent } = tools;
+	const res = await superagent.get('http://api.adviceslip.com/advice');
+	const advice = JSON.parse(res.text);
 	// Code
-	let res = await superagent.get('');
 	const e = new discord.RichEmbed()
-		.setTitle('Random !')
-		.setColor(config.colors.secondary)
-		.attachFiles(['./assets/images/binary.png'])
-		.setThumbnail('attachment://binary.png');
-	message.channel.send(e);
+		.setTitle('Advice')
+		.setDescription(advice.slip.advice)
+		.setColor(config.colors.secondary);
+	return message.channel.send(e);
 	// Functions
 };
 
 module.exports.config = {
 	cmd: {
-		main: '',
+		main: 'advice',
 		aliases: []
 	},
 	info: {
-		name: '',
-		usage: '',
+		name: 'Advice',
+		usage: 'advice',
 		aliases: '',
-		description: 'Get a random picture of a _.'
+		description: 'Get some advice, maybe it will be helpful.'
 	},
 	module: {
 		main: 'entertainment',
-		sub: 'animals'
+		sub: ''
 	},
 	settings: {
-		dm: true,
+		dm: false,
 		restrictions: 0, // 0 - Everyone, 1 - Admin, 2 - Guild Owner, 3 - Dev Team
 		premium: false,
 		permissions: {

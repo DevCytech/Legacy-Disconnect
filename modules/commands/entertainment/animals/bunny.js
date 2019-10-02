@@ -29,7 +29,7 @@ module.exports.config = {
 		sub: 'animals'
 	},
 	settings: {
-		dm: true,
+		dm: false,
 		restrictions: 0, // 0 - Everyone, 1 - Admin, 2 - Guild Owner, 3 - Dev Team
 		premium: false,
 		permissions: {
