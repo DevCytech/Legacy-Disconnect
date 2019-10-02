@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/04417f2cb9334a0e916520a3c77ca6f7)](https://www.codacy.com/manual/CytechYT/Disconnect-Rebuilt?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=CytechYT/Disconnect-Rebuilt&amp;utm_campaign=Badge_Grade)
 `NEW Build`
 # Disconnect
 ## About
@@ -7,7 +8,7 @@
 - **Version**: V1.0.0
 - **Website**: Not Yet Completed.
 - **Invite Link**: https://bit.ly/InviteDisconnect
-- **Support Server**: https://discord.gg/RJBm6Ka 
+- **Support Server**: https://discord.gg/RJBm6Ka
 
 ## Features
 - Music   
