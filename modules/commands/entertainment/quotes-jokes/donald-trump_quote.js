@@ -19,14 +19,14 @@ module.exports.config = {
 		aliases: ['trump', 'quote-trump']
 	},
 	info: {
-		name: '',
-		usage: '',
-		aliases: '',
-		description: ''
+		name: 'Trump Quotes',
+		usage: 'trump-quote',
+		aliases: 'trump, quote-trump',
+		description: 'Get Donald Trump quotes.'
 	},
 	module: {
-		main: '',
-		sub: ''
+		main: 'entertainment',
+		sub: 'quotes'
 	},
 	settings: {
 		dm: false,
