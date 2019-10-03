@@ -6,45 +6,43 @@
 		},
 		"links": {
 			"botInvite": {
-				"short": "http://bit.ly/InviteDisconnect",
-				"long": "https://discordapp.com/oauth2/authorize?client_id=576160626095685632&scope=bot&permissions=2146958847"
+				"short": "",
+				"long": ""
 			},
 			"supportServer": {
-				"link": "https://discord.gg/RJBm6Ka",
-				"code": "RJBm6Ka"
+				"link": "",
+				"code": ""
 			},
 			"website": {
-				"link": "Coming Soon!",
-				"donation": "Coming Soon!",
-				"commandList": "Coming Soon!"
+				"link": "",
+				"donation": "",
+				"commandList": ""
 			}
 		},
 		"activity": {
-			"type": "1",
-			"game": "for things to say!",
-			"status": "1"
+			"type": "",
+			"game": "",
+			"status": ""
 		}
 	},
 	"staff": {
-		"creator": "190612497848336384",
-		"developers": ["190612497848336384"],
+		"creator": "",
+		"developers": [],
 		"testers": []
 	},
 	"colors": {
-		"fun": "F40C75",
-		"main": "0CAAF4",
-		"game": "0CF4A3",
-		"error": "F4350C",
-		"regular": "0C33F4",
-		"success": "0CF41A",
-		"warning": "F4DF0C",
-		"secondary": "0C80F4"
+		"fun": "",
+		"main": "",
+		"game": "",
+		"error": "",
+		"regular": "",
+		"success": "",
+		"warning": "",
+		"secondary": ""
 	},
 	"settings": {
-		"prefix": "?",
-		"version": "1.0.0",
-		"restriction": "1"
-	},
-	"console": "626448538297171989",
-	"consoleAux": "626450715463909395"
+		"prefix": "",
+		"version": "",
+		"restriction": ""
+	}
 }
