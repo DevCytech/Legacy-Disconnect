@@ -17,14 +17,14 @@ module.exports.config = {
 		aliases: ['chuck-norris', 'chuck-joke']
 	},
 	info: {
-		name: '',
-		usage: '',
-		aliases: '',
+		name: 'Chuck Norris Joke',
+		usage: 'chuck-norris-joke',
+		aliases: 'chuck-norris, chuck-joke',
 		description: 'Get a Chuck Norris joke.'
 	},
 	module: {
-		main: '',
-		sub: ''
+		main: 'entertainment',
+		sub: 'jokes'
 	},
 	settings: {
 		dm: false,

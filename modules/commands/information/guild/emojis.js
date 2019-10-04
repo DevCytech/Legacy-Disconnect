@@ -21,8 +21,8 @@ module.exports.config = {
 		description: ''
 	},
 	module: {
-		main: '',
-		sub: ''
+		main: 'information',
+		sub: 'guild'
 	},
 	settings: {
 		dm: false,

@@ -46,7 +46,7 @@ module.exports.config = {
 	},
 	module: {
 		main: 'information',
-		sub: 'help'
+		sub: 'guild'
 	},
 	settings: {
 		restrictions: 0, // 0 - Everyone, 1 - Admin, 2 - Guild Owner, 3 - Dev Team
