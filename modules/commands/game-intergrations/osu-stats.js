@@ -5,6 +5,7 @@ module.exports.run = async (bot, message, args, tools, data) => {
 		standard: 0,
 		taiko: 1,
 		ctb: 2,
+<<<<<<< HEAD
 		mania: 3,
 		0: 0,
 		1: 1,
@@ -76,13 +77,38 @@ module.exports.run = async (bot, message, args, tools, data) => {
 		return message.channel.send(e);
 	}
 
+=======
+		mania: 3
+	};
+	const modes = {
+		standard: 'osu!',
+		taiko: 'Taiko',
+		ctb: 'CTB',
+		mania: 'osu!Mania'
+	};
+	let username, mode, find;
+	
+	// Code
+	if (!args[0] || !args[0] == modeChoices) {
+		return improperUsageWarn('osu', message, data)
+	} else if (!args[1]) {
+		return improperUsageWarn('osu', message, data)
+	}
+	mode = args[0]
+	find = args.slice(1).join(' ').toLowerCase()
+	
+>>>>>>> ab8e387ac2721ee6cd7e4f59e766f284dcfdc077
 	// Functions
 };
 
 module.exports.config = {
 	cmd: {
 		main: 'osu',
+<<<<<<< HEAD
 		aliases: ['osu-stats']
+=======
+		aliases: ['osu-stats]
+>>>>>>> ab8e387ac2721ee6cd7e4f59e766f284dcfdc077
 	},
 	info: {
 		name: 'osu! Player Stats',
