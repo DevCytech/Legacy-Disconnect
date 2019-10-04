@@ -1,42 +1,49 @@
 module.exports.run = async (bot, message, args, tools, data) => {
-	// Functions
+	// Variables
+	const { discord, config, errorWarn, unique, capitalize } = tools;
 	const filter = (reaction, user) => {
 		return reaction.emoji.name === '📑' && user.id === message.author.id;
 	};
-	// Variables
-	const { discord, config, errorWarn, unique, capitalize } = tools;
 	// Code
-	const e = new discord.RichEmbed()
-		.setTitle(`${config.info.bot.name}'s Command list`)
-		.setDescription(
-			'If you would like to get the full command list please click the :bookmark: reaction below to receive the dm with all the commands.'
-		)
-		.setColor(config.colors.main)
-		.setFooter(
-			'Please react in the next minute otherwise please retype the command.'
-		);
-	let msg = await message.channel.send(e);
-	await msg.react('📑');
+	if (message.channel.type === 'dm') {
+		const ne = new discord.RichEmbed()
+			.setTitle(`${config.info.bot.name}'s Command list`)
+]			.setColor(config.colors.main);
+		getCommands(ne);
+		return message.channel.send(ne)
+	}else {
+		const e = new discord.RichEmbed()
+			.setTitle(`${config.info.bot.name}'s Command list`)
+			.setDescription(
+				'If you would like to get the full command list please click the :bookmark: reaction below to receive the dm with all the commands.'
+			)
+			.setColor(config.colors.main)
+			.setFooter(
+				'Please react in the next minute otherwise please retype the command.'
+			);
+		let msg = await message.channel.send(e);
+		await msg.react('📑');
 
-	msg
-		.awaitReactions(filter, { max: 1, time: 60000, errrors: ['time'] })
-		.then(async collected => {
-			const reaction = collected.first();
-			if (reaction.emoji.name === '📑') {
-				const ne = new discord.RichEmbed()
-					.setTitle(`${config.info.bot.name}'s Command list`)
-					.setColor(config.colors.main);
-				getCommands(ne);
-				message.author.send(ne).catch(error => {
-					return errorWarn(
-						message,
-						'Please allow messages from server members in your privacy tab in settings, to receive the command list.'
-					);
-				});
-			} else {
-				return;
-			}
-		});
+		msg
+			.awaitReactions(filter, { max: 1, time: 60000, errrors: ['time'] })
+			.then(async collected => {
+				const reaction = collected.first();
+				if (reaction.emoji.name === '📑') {
+					const ne = new discord.RichEmbed()
+						.setTitle(`${config.info.bot.name}'s Command list`)
+						.setColor(config.colors.main);
+					getCommands(ne);
+					message.author.send(ne).catch(error => {
+						return errorWarn(
+							message,
+							'Please allow messages from server members in your privacy tab in settings, to receive the command list.'
+						);
+					});
+				} else {
+					return;
+				}
+			});
+	}
 	// Functions
 	function getCommands(ne) {
 		let modules = [];
