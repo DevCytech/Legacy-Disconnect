@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args, tools, data) => {
 		)
 		.setColor(config.colors.main)
 		.setFooter(
-			'Please react in the next minute otherwise please retype the command.'
+			"This message will delete it's self in 60 seconds, please react before then."
 		);
 	let msg = await message.channel.send(e);
 	await msg.react('📑');
@@ -22,17 +22,23 @@ module.exports.run = async (bot, message, args, tools, data) => {
 		.awaitReactions(filter, { max: 1, time: 60000, errrors: ['time'] })
 		.then(async collected => {
 			const reaction = collected.first();
-			if (reaction.emoji.name === '📑') {
-				const ne = new discord.RichEmbed()
-					.setTitle(`${config.info.bot.name}'s Command list`)
-					.setColor(config.colors.main);
-				getCommands(ne);
-				message.author.send(ne).catch(error => {
-					return errorWarn(
-						message,
-						'Please allow messages from server members in your privacy tab in settings, to receive the command list.'
-					);
-				});
+			if (message.channel.type !== 'dm') message.delete();
+			msg.delete();
+			if (reaction) {
+				if (reaction.emoji.name === '📑') {
+					const ne = new discord.RichEmbed()
+						.setTitle(`${config.info.bot.name}'s Command list`)
+						.setColor(config.colors.main);
+					getCommands(ne);
+					message.author.send(ne).catch(error => {
+						return errorWarn(
+							message,
+							'Please allow messages from server members in your privacy tab in settings, to receive the command list.'
+						);
+					});
+				} else {
+					return;
+				}
 			} else {
 				return;
 			}
@@ -65,14 +71,13 @@ module.exports.run = async (bot, message, args, tools, data) => {
 				if (description) {
 					description =
 						description +
-						`\n${capitalize(smd)} \n> - ${getSubCommands(md, smd).join(
-							'\n> - '
+						`\n${capitalize(smd)} \n> ${getSubCommands(md, smd).join(
+							'     |     '
 						)}`;
 				} else {
-					description = `${capitalize(smd)} \n> - ${getSubCommands(
-						md,
-						smd
-					).join('\n> - ')}`;
+					description = `${capitalize(smd)} \n> ${getSubCommands(md, smd).join(
+						'     |     '
+					)}`;
 				}
 			});
 

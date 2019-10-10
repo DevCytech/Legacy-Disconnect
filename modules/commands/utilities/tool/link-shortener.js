@@ -22,12 +22,12 @@ module.exports.run = async (bot, message, args, tools, data) => {
 module.exports.config = {
 	cmd: {
 		main: 'link-shorten',
-		aliases: ['shorten']
+		aliases: ['shorten', 'url-shorten']
 	},
 	info: {
 		name: 'Link Shortener',
 		usage: 'link-shorten <link>',
-		aliases: 'shorten',
+		aliases: 'shorten, url-shorten',
 		description: 'Provides a link to be shortened by is.gd.'
 	},
 	module: {

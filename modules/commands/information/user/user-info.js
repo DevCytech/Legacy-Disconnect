@@ -20,7 +20,9 @@ module.exports.run = async (bot, message, args, tools, data) => {
 	// Code
 	const e = new discord.RichEmbed()
 		.setTitle(`${user.username}'s Information`)
-		.setColor(member.displayColor)
+		.setColor(
+			member.displayHexColor === '#000000' ? '#ffffff' : member.displayHexColor
+		)
 		.setThumbnail(user.avatarURL)
 		.addField('User', `${member.displayName}, ${user.id}, ${user.tag}`);
 	if (user.presence.status !== 'offline')
