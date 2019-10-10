@@ -4,6 +4,6 @@ const { discord, creds, commandManager } = require('./lib/utilities'),
 commandManager(bot, discord);
 bot.tools = require('./lib/utilities');
 
-bot.login(creds.token);
+bot.login(creds.bot.token);
 
 module.exports.bot = bot;

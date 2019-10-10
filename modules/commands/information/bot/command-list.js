@@ -1,11 +1,11 @@
 module.exports.run = async (bot, message, args, tools, data) => {
-	// Variables
-	const { discord, config, errorWarn, unique, capitalize } = tools;
+	// Functions
 	const filter = (reaction, user) => {
 		return reaction.emoji.name === '📑' && user.id === message.author.id;
 	};
+	// Variables
+	const { discord, config, errorWarn, unique, capitalize } = tools;
 	// Code
-<<<<<<< HEAD
 	const e = new discord.RichEmbed()
 		.setTitle(`${config.info.bot.name}'s Command list`)
 		.setDescription(
@@ -25,31 +25,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 			if (message.channel.type !== 'dm') message.delete();
 			msg.delete();
 			if (reaction) {
-=======
-	if (message.channel.type === 'dm') {
-		const ne = new discord.RichEmbed()
-			.setTitle(`${config.info.bot.name}'s Command list`)
-]			.setColor(config.colors.main);
-		getCommands(ne);
-		return message.channel.send(ne)
-	}else {
-		const e = new discord.RichEmbed()
-			.setTitle(`${config.info.bot.name}'s Command list`)
-			.setDescription(
-				'If you would like to get the full command list please click the :bookmark: reaction below to receive the dm with all the commands.'
-			)
-			.setColor(config.colors.main)
-			.setFooter(
-				'Please react in the next minute otherwise please retype the command.'
-			);
-		let msg = await message.channel.send(e);
-		await msg.react('📑');
-
-		msg
-			.awaitReactions(filter, { max: 1, time: 60000, errrors: ['time'] })
-			.then(async collected => {
-				const reaction = collected.first();
->>>>>>> db416817cfbb0b8a95f360a9826ece8e1137bd65
 				if (reaction.emoji.name === '📑') {
 					const ne = new discord.RichEmbed()
 						.setTitle(`${config.info.bot.name}'s Command list`)
@@ -64,15 +39,10 @@ module.exports.run = async (bot, message, args, tools, data) => {
 				} else {
 					return;
 				}
-<<<<<<< HEAD
 			} else {
 				return;
 			}
 		});
-=======
-			});
-	}
->>>>>>> db416817cfbb0b8a95f360a9826ece8e1137bd65
 	// Functions
 	function getCommands(ne) {
 		let modules = [];

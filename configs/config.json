@@ -17,12 +17,10 @@
 				"link": "",
 				"donation": "",
 				"commandList": ""
+			},
+			"support": {
+				"discordBots": ""
 			}
-		},
-		"activity": {
-			"type": "",
-			"game": "",
-			"status": ""
 		}
 	},
 	"staff": {

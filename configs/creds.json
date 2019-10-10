@@ -1,4 +1,20 @@
 {
-	"token": "",
-	"discordBotList": ""
+	"bot": {
+		"token": "",
+		"lists": {
+			"dbl": ""
+		}
+	},
+	"apis": {
+		"games": {
+			"osu": ""
+		},
+		"images": {
+			"giphy": "",
+			"tenor": ""
+		},
+		"social": {
+			"twitch": ""
+		}
+	}
 }
