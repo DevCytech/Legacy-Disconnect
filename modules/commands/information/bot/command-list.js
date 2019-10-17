@@ -68,7 +68,12 @@ module.exports.run = async (bot, message, args, tools, data) => {
 			subModules = unique(subModules);
 			let description;
 			subModules.forEach(smd => {
-				if (description) {
+				if (
+					smd === 'hidden' &&
+					!config.staff.developers.includes(message.author.id)
+				) {
+					return;
+				} else if (description) {
 					description =
 						description +
 						`\n${capitalize(smd)} \n> ${getSubCommands(md, smd).join(
@@ -80,8 +85,7 @@ module.exports.run = async (bot, message, args, tools, data) => {
 					)}`;
 				}
 			});
-
-			ne.addField(capitalize(md), description);
+			ne.addField(`__${capitalize(md)}__`, description);
 		});
 	}
 
@@ -108,10 +112,10 @@ module.exports.config = {
 		aliases: ['cmd-list']
 	},
 	info: {
-		name: '',
-		usage: '',
-		aliases: '',
-		description: ''
+		name: 'Command List',
+		usage: 'command-list',
+		aliases: 'cmd-list',
+		description: 'List all the commands on the bot.'
 	},
 	module: {
 		main: 'information',

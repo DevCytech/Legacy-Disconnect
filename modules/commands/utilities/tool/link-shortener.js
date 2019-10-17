@@ -32,7 +32,7 @@ module.exports.config = {
 	},
 	module: {
 		main: 'utility',
-		sub: 'tool'
+		sub: 'tools'
 	},
 	settings: {
 		dm: false,

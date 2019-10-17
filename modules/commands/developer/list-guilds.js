@@ -10,8 +10,9 @@ module.exports.run = async (bot, message, args, tools, data) => {
 	}
 
 	const guildArray = bot.guilds.map((guild, index) => {
+		console.log(guild.name);
 		return ` • ${guild.id} :: ${guild.name.replace(
-			/'*'/,
+			/\'/,
 			''
 		)} - ${guild.members.size.toLocaleString()} Members`;
 	});

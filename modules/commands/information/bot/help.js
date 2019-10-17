@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args, tools, data) => {
 		)
 		.addField(
 			'Help Commands',
-			`\n - help\n - modules\n - command-list\n - command-information`,
+			`\n - help\n - command-list\n - command-information`,
 			true
 		);
 	return message.channel.send(e);
