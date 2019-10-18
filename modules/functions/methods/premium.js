@@ -14,11 +14,15 @@ module.exports = async function(bot, message, command, tools, data) {
 		people = await userDatabase.find({ userID: people });
 
 		people.forEach(person => {
-			if (person.premium.end > Date.now()) return people.pop(person);
+			if (person.premium.end > Date.now()) {
+				return people.pop(person);
+			}
 			return premiumPeople.push(person);
 		});
 
-		if (premiumPeople == undefined) return (data = 'stop');
+		if (premiumPeople == undefined) {
+			return (data = 'stop');
+		}
 		if (premiumPeople.length > 0) {
 			return;
 		} else {
