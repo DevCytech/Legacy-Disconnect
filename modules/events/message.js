@@ -79,7 +79,9 @@ bot.on('message', async message => {
 	} else {
 		let test3 = await manageDM(bot, message, command, tools, data);
 		if (test3 !== undefined) {
-			if (test3 === 'stop') return;
+			if (test3 === 'stop') {
+				return;
+			}
 		}
 	}
 
