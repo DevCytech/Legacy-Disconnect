@@ -6,7 +6,9 @@ module.exports.run = async (bot, message, args, tools, data) => {
 		message.guild.roles.get(args[0]) ||
 		message.guild.roles.find(r => r.name == args.slice(1).join(' '));
 
-	if (!role) role = message.member.highestRole;
+	if (!role) {
+		role = message.member.highestRole;
+	}
 	// Code
 	const e = new discord.RichEmbed()
 		.setTitle(`Role: ${role.name}`)
