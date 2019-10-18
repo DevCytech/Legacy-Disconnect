@@ -23,7 +23,7 @@ module.exports.run = async (bot, message, args, tools, data) => {
 		} else {
 			let desc;
 			history.name_history.forEach(name => {
-				if (desc == undefined) {
+				if (desc === null) {
 					desc = `**${name.name}** | ${name.changedToAt}\n`;
 				} else {
 					desc = desc + `**${name.name}** | ${name.changedToAt}\n`;
