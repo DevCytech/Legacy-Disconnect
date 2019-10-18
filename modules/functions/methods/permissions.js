@@ -2,10 +2,10 @@ module.exports = async function(bot, message, command, tools, data) {
 	let val,
 		adminRoles = [],
 		returned;
-	const { checkPermissions, errorWarn, config } = tools;
+	const { verifyPermission, errorWarn, config } = tools;
 
 	// Get Admin Roles
-	data.guild.main.roles.modRoles.forEach(async roleID => {
+	data.guild.main.roles.admin.forEach(async roleID => {
 		let role = message.guild.roles.find(role => role.id === roleID);
 		if (role == null) {
 			return;
@@ -21,7 +21,7 @@ module.exports = async function(bot, message, command, tools, data) {
 		// Admins
 		if (data.guild.main.settings.adminRestriction == 0) {
 			// Permissions Required Only
-			returned = checkPermissions(bot, messages, command, tools, data);
+			returned = verifyPermission(bot, message, command, tools, data);
 			if (returned == 'stop') {
 				return (val = 'stop');
 			} else {
@@ -29,7 +29,7 @@ module.exports = async function(bot, message, command, tools, data) {
 			}
 		} else if (data.guild.main.settings.adminRestriction == 1) {
 			// Permissions Required + Roles
-			returned = checkPermissions(bot, messages, command, tools, data);
+			returned = verifyPermission(bot, message, command, tools, data);
 			if (returned == 'stop') {
 				return (val = 'stop');
 			} else {
@@ -56,7 +56,6 @@ module.exports = async function(bot, message, command, tools, data) {
 			);
 			return (val = 'stop');
 		}
-		return;
 	} else if (command.config.settings.restrictions === 2) {
 		//Guild Owners
 		if (message.guild.owner.user.id == message.author.id) {
