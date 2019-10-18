@@ -1,4 +1,5 @@
 module.exports = async function(bot, message, command, tools, data) {
+	let val;
 	const { errorWarn } = tools;
 	if (command.config.settings.dm == false) {
 		// Error
