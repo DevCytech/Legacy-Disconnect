@@ -1,9 +1,15 @@
 module.exports = function getTime() {
-	let date = new date();
-
-	if (date.getHours() >= 13) {
-		return date.getHours() - 12 + ':' + date.getMinutes();
+	function getTime() {
+	let date = new Date();
+	if (date.getMinutes() >= 9) {
+		minutes = '0' + date.getMinutes();
 	} else {
-		return date.getHours() + ':' + date.getMinutes();
+		minutes = date.getMinutes();
 	}
+	if (date.getHours() >= 13) {
+		return date.getHours() - 12 + ':' + minutes + ' PM';
+	} else {
+		return date.getHours() + ':' + minutes + ' AM';
+	}
+}
 };
