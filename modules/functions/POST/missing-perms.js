@@ -1,5 +1,4 @@
-module.exports = function(message, permission, user) {
-	const { bot } = require('../../index');
+module.exports = function(bot, message, permission, user) {
 	const { discord, config } = bot.tools;
 
 	if (permission) {
@@ -10,26 +9,26 @@ module.exports = function(message, permission, user) {
 		if (permission.length > 0) {
 			if (user == 'bot') {
 				e.setDescription(
-					`I am missing the following permissions, \`${permission}\`.`
+					`I am missing the following permissions: \`${permission}\`.`
 				);
 				return message.channel.send(e);
 			} else {
 				e.setDescription(
-					`You are missing the following permissions, \`${permission}\`.`
+					`You are missing the following permissions: \`${permission}\`.`
 				);
 				return message.channel.send(e);
 			}
 		} else {
 			if (user == 'bot') {
 				e.setDescription(
-					`I am missing the following permissions, \`${permission.join(
+					`I am missing the following permissions: \`${permission.join(
 						', '
 					)}\`.`
 				);
 				return message.channel.send(e);
 			} else {
 				e.setDescription(
-					`You are missing the following permissions, \`${permission.join(
+					`You are missing the following permissions: \`${permission.join(
 						', '
 					)}\`.`
 				);

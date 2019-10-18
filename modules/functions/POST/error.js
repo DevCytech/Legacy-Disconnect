@@ -11,10 +11,14 @@ module.exports = function(message, text) {
 
 function getTime() {
 	let date = new Date();
-
-	if (date.getHours() >= 13) {
-		return date.getHours() - 12 + ':' + date.getMinutes() + ' PM';
+	if (date.getMinutes() >= 9) {
+		minutes = '0' + date.getMinutes();
 	} else {
-		return date.getHours() + ':' + date.getMinutes() + ' AM';
+		minutes = date.getMinutes();
+	}
+	if (date.getHours() >= 13) {
+		return date.getHours() - 12 + ':' + minutes + ' PM';
+	} else {
+		return date.getHours() + ':' + minutes + ' AM';
 	}
 }

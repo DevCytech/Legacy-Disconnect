@@ -13,39 +13,58 @@ module.exports = async (bot, message) => {
 			id: message.guild.id,
 			name: message.guild.name,
 			prefix: config.settings.prefix,
-			restriction: 'roles+perms',
+			info: {
+				users: message.guild.members.filter(member => !member.user.bot).size,
+				bots: message.guild.members.filter(member => member.user.bot).size,
+				channels: message.guild.channels.size
+			},
+			channels: {
+				music: '',
+				starboard: '',
+				pollBoard: '',
+				welcome: '',
+				levelup: '',
+				giveaway: '',
+				logs: {
+					economy: '',
+					msg: {
+						delete: '',
+						edited: '',
+						vcJoin: '',
+						vcLeave: ''
+					},
+					server: {
+						ban: '',
+						join: '',
+						kick: '',
+						channel: '',
+						role: '',
+						nickname: ''
+					}
+				}
+			},
 			disabled: {
 				cmds: [],
 				modules: [],
 				channels: []
 			},
-			custom: {
-				enabled: false,
-				commands: []
-			},
 			roles: {
+				admin: [],
 				muted: '',
-				mod: [],
-				dj: []
+				dj: ''
 			},
-			level: {
-				enabled: true,
-				cooldown: 120000,
-				chat: {
-					max: 25,
-					min: 10
-				}
+			leveling: {
+				enabled: true
 			},
-			eco: {
+			economy: {
 				enabled: true,
-				cooldown: 120000,
 				chat: {
-					max: 100,
-					min: 10
+					max: 10,
+					min: 25
 				},
 				default: {
-					bank: 0,
-					cash: 0
+					cash: 0,
+					bank: 0
 				}
 			},
 			settings: {

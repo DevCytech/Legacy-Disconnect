@@ -43,11 +43,11 @@ module.exports = async (bot, message, svr) => {
 				name: message.author.username,
 				guild: message.guild.id,
 				eco: {
-					cash: parseInt(svr.main.eco.default.cash),
-					bank: parseInt(svr.main.eco.default.bank),
+					cash: parseInt(svr.main.economy.default.cash),
+					bank: parseInt(svr.main.economy.default.bank),
 					net:
-						parseInt(svr.main.eco.default.cash) +
-						parseInt(svr.main.eco.default.bank)
+						parseInt(svr.main.economy.default.cash) +
+						parseInt(svr.main.economy.default.bank)
 				},
 				level: {
 					xp: 0,
