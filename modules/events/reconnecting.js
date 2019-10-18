@@ -9,7 +9,9 @@ bot.on('reconnecting', async => {
 		.setDescription('Reconnecting!')
 		.setFooter(getTime());
 	var channel = bot.channels.get('622619858600984586');
-	if (channel == undefined || channel == null) return;
+	if (channel == undefined || channel == null) {
+		return;
+	}
 	channel.send(e);
 });
 
