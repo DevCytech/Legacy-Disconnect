@@ -25,13 +25,14 @@ module.exports.run = async (bot, message, args, tools, data) => {
 		)
 		.setThumbnail(user.avatarURL)
 		.addField('User', `${member.displayName}, ${user.id}, ${user.tag}`);
-	if (user.presence.status !== 'offline')
+	if (user.presence.status !== 'offline') {
 		e.addField(
 			'Status',
 			`${types[user.presence.status]} ${
 				user.presence.game ? user.presence.game.name : 'None'
 			}`
 		);
+	}
 	e.addField(
 		'Economy',
 		`:moneybag: Cash $${data.person.guild.eco.cash}, :bank: Bank: $${
