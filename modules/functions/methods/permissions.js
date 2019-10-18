@@ -2,7 +2,7 @@ module.exports = async function(bot, message, command, tools, data) {
 	let val,
 		adminRoles = [],
 		returned;
-	const { verifyPermission, errorWarn, config } = tools;
+	const { verifyPermission, errorWarn, config, messingRoleWarn } = tools;
 
 	// Get Admin Roles
 	data.guild.main.roles.admin.forEach(async roleID => {
