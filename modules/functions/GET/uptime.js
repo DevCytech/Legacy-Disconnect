@@ -12,7 +12,9 @@ module.exports = function(bot) {
 	getDays();
 
 	// If the bot just started and uptime is 0:0:0:0 then say this
-	if (uptime == undefined) uptime = 'I just started up!';
+	if (uptime == undefined) {
+		uptime = 'I just started up!';
+	}
 
 	// Return the uptime
 	return uptime;
