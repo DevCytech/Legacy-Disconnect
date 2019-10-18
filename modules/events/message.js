@@ -1,7 +1,9 @@
 const { bot } = require('../../index');
 
 bot.on('message', async message => {
-	if (message.author.bot) return;
+	if (message.author.bot) {
+		return;
+	}
 	const {
 		config,
 		allData,
@@ -44,11 +46,15 @@ bot.on('message', async message => {
 
 	// Delete Empty Space Args
 	for (var i = 0, l = args.length; i < l; i++) {
-		if (args[i].match(/^[\s\t]{2,}$/) !== null) args.splice(i, 1);
+		if (args[i].match(/^[\s\t]{2,}$/) !== null) {
+			args.splice(i, 1);
+		}
 	}
 
 	// If it doesn't start with the prefix
-	if (!message.content.startsWith(prefix)) return;
+	if (!message.content.startsWith(prefix)) {
+		return;
+	}
 
 	// Define the command
 	command = bot.commands.get(cmd) || bot.commands.get(bot.aliases.get(cmd));
@@ -57,12 +63,18 @@ bot.on('message', async message => {
 
 	// Pre Command Chechs
 	if (message.channel.type !== 'dm') {
-		if (!command) return;
+		if (!command) {
+			return;
+		}
 		let test1 = await checkPermissions(bot, message, command, tools, data);
 		let test2 = await checkPremium(bot, message, command, tools, data);
 		if (test1 !== undefined || test2 !== undefined) {
-			if (test1 === 'stop') return;
-			if (test2 === 'stop') return;
+			if (test1 === 'stop') {
+				return;
+			}
+			if (test2 === 'stop') {
+				return;
+			}
 		}
 	} else {
 		let test3 = await manageDM(bot, message, command, tools, data);
@@ -72,5 +84,7 @@ bot.on('message', async message => {
 	}
 
 	// If There is a Command
-	if (command) return command.run(bot, message, args, tools, data);
+	if (command) {
+		return command.run(bot, message, args, tools, data);
+	}
 });
