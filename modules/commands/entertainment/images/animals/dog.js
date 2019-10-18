@@ -1,30 +1,30 @@
 module.exports.run = async (bot, message, args, tools, data) => {
 	// Variables
-	const { discord, superagent, config } = tools;
-	let res = await superagent.get(`https://icanhazdadjoke.com/slack`);
+	const { config, discord, superagent } = tools;
 	// Code
-	let e = new discord.RichEmbed()
-		.setTitle('Random Dad Joke!')
+	let image = await superagent.get('https://dog.ceo/api/breeds/image/random');
+	const e = new discord.RichEmbed()
+		.setTitle('Random Dog!')
 		.setColor(config.colors.secondary)
-		.setDescription(res.body.attachments.map(a => a.text));
-	return message.channel.send(e);
+		.setImage(image.body.message);
+	message.channel.send(e);
 	// Functions
 };
 
 module.exports.config = {
 	cmd: {
-		main: 'dad-joke',
+		main: 'dog',
 		aliases: []
 	},
 	info: {
-		name: 'Dad Joke',
-		usage: 'dad-joke',
+		name: 'dog',
+		usage: 'dog',
 		aliases: '',
-		description: 'Get a random dad joke.'
+		description: 'Get a random picture of a dog.'
 	},
 	module: {
-		main: 'entertainment',
-		sub: 'jokes'
+		main: 'images',
+		sub: 'animals'
 	},
 	settings: {
 		dm: false,

@@ -2,9 +2,11 @@ module.exports.run = async (bot, message, args, tools, data) => {
 	// Variables
 	const { config, discord, superagent } = tools;
 	// Code
-	let image = await superagent.get('https://dog.ceo/api/breeds/image/random');
+	let image = await superagent
+		.get('https://nekobot.xyz/api/image')
+		.query({ type: 'coffee' });
 	const e = new discord.RichEmbed()
-		.setTitle('Random Dog!')
+		.setTitle('Coffee!')
 		.setColor(config.colors.secondary)
 		.setImage(image.body.message);
 	message.channel.send(e);
@@ -13,18 +15,18 @@ module.exports.run = async (bot, message, args, tools, data) => {
 
 module.exports.config = {
 	cmd: {
-		main: 'dog',
+		main: 'coffee',
 		aliases: []
 	},
 	info: {
-		name: 'dog',
-		usage: 'dog',
+		name: 'Coffee',
+		usage: 'coffee',
 		aliases: '',
-		description: 'Get a random picture of a dog.'
+		description: 'Get a random image of coffee.'
 	},
 	module: {
-		main: 'entertainment',
-		sub: 'animals'
+		main: 'images',
+		sub: 'regular'
 	},
 	settings: {
 		dm: false,

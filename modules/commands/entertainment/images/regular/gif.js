@@ -31,8 +31,8 @@ module.exports.config = {
 		description: 'Get a random gif from giphy.'
 	},
 	module: {
-		main: 'entertainment',
-		sub: 'images'
+		main: 'images',
+		sub: 'regular'
 	},
 	settings: {
 		dm: false,

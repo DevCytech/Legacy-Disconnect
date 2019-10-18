@@ -2,31 +2,29 @@ module.exports.run = async (bot, message, args, tools, data) => {
 	// Variables
 	const { config, discord, superagent } = tools;
 	// Code
-	let image = await superagent
-		.get('https://nekobot.xyz/api/image')
-		.query({ type: 'coffee' });
+	let image = await superagent.get('https://nekos.life/api/v2/img/lizard');
 	const e = new discord.RichEmbed()
-		.setTitle('Coffee!')
+		.setTitle('Random Lizard!')
 		.setColor(config.colors.secondary)
-		.setImage(image.body.message);
+		.setImage(image.body.url);
 	message.channel.send(e);
 	// Functions
 };
 
 module.exports.config = {
 	cmd: {
-		main: 'coffee',
+		main: 'lizard',
 		aliases: []
 	},
 	info: {
-		name: 'Coffee',
-		usage: 'coffee',
+		name: 'Lizard',
+		usage: 'lizard',
 		aliases: '',
-		description: 'Get a random image of coffee.'
+		description: 'Get a random picture of a lizard.'
 	},
 	module: {
-		main: 'entertainment',
-		sub: 'images'
+		main: 'images',
+		sub: 'animals'
 	},
 	settings: {
 		dm: false,

@@ -2,28 +2,28 @@ module.exports.run = async (bot, message, args, tools, data) => {
 	// Variables
 	const { config, discord, superagent } = tools;
 	// Code
-	let image = await superagent.get('https://randomfox.ca/floof');
+	let image = await superagent.get('https://nekos.life/api/v2/img/meow');
 	const e = new discord.RichEmbed()
-		.setTitle('Random Fox!')
+		.setTitle('Random Cat!')
 		.setColor(config.colors.secondary)
-		.setImage(image.body.image);
+		.setImage(image.body.url);
 	message.channel.send(e);
 	// Functions
 };
 
 module.exports.config = {
 	cmd: {
-		main: 'fox',
+		main: 'cat',
 		aliases: []
 	},
 	info: {
-		name: 'Fox',
-		usage: 'fox',
+		name: 'Cat',
+		usage: 'cat',
 		aliases: '',
-		description: 'Get a random picture of a fox.'
+		description: 'Get a random picture of a cat.'
 	},
 	module: {
-		main: 'entertainment',
+		main: 'images',
 		sub: 'animals'
 	},
 	settings: {

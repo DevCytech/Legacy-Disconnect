@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args, tools, data) => {
 
 	const e = new discord.RichEmbed()
 		.setTitle('Coin Flip...')
-		.setColor(config.colors.secondary);
+		.setColor(config.colors.game);
 
 	if (side == '1') {
 		e.setDescription('The coin has landed on... HEADS!!!');

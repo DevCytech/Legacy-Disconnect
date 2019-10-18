@@ -24,7 +24,7 @@ module.exports.config = {
 	},
 	module: {
 		main: 'entertainment',
-		sub: 'jokes'
+		sub: 'misc'
 	},
 	settings: {
 		dm: false,

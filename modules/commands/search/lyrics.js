@@ -33,8 +33,8 @@ module.exports.config = {
 		description: 'Get the lyrics of a song.'
 	},
 	module: {
-		main: 'music',
-		sub: 'search'
+		main: 'search',
+		sub: 'regular'
 	},
 	settings: {
 		dm: false,

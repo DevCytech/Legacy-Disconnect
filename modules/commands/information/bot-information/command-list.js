@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args, tools, data) => {
 	await msg.react('📑');
 
 	msg
-		.awaitReactions(filter, { max: 1, time: 60000, errrors: ['time'] })
+		.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
 		.then(async collected => {
 			const reaction = collected.first();
 			if (message.channel.type !== 'dm') message.delete();

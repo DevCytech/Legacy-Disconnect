@@ -2,30 +2,28 @@ module.exports.run = async (bot, message, args, tools, data) => {
 	// Variables
 	const { config, discord, superagent } = tools;
 	// Code
-	let image = await superagent.get(
-		'https://api.bunnies.io/v2/loop/random/?media=gif,png'
-	);
+	let image = await superagent.get('https://randomfox.ca/floof');
 	const e = new discord.RichEmbed()
-		.setTitle('Random Bunny!')
+		.setTitle('Random Fox!')
 		.setColor(config.colors.secondary)
-		.setImage(image.body.media.poster);
+		.setImage(image.body.image);
 	message.channel.send(e);
 	// Functions
 };
 
 module.exports.config = {
 	cmd: {
-		main: 'bunny',
+		main: 'fox',
 		aliases: []
 	},
 	info: {
-		name: 'Bunny',
-		usage: 'bunny',
+		name: 'Fox',
+		usage: 'fox',
 		aliases: '',
-		description: 'Get a random picture of a bunny.'
+		description: 'Get a random picture of a fox.'
 	},
 	module: {
-		main: 'entertainment',
+		main: 'images',
 		sub: 'animals'
 	},
 	settings: {

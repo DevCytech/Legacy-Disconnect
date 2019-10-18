@@ -4,9 +4,9 @@ module.exports.run = async (bot, message, args, tools, data) => {
 	// Code
 	let image = await superagent
 		.get('https://nekobot.xyz/api/image')
-		.query({ type: 'kanna' });
+		.query({ type: 'gah' });
 	const e = new discord.RichEmbed()
-		.setTitle('Kanna!')
+		.setTitle('Gah!')
 		.setColor(config.colors.secondary)
 		.setImage(image.body.message);
 	message.channel.send(e);
@@ -15,19 +15,18 @@ module.exports.run = async (bot, message, args, tools, data) => {
 
 module.exports.config = {
 	cmd: {
-		main: 'kanna',
+		main: 'gah',
 		aliases: []
 	},
 	info: {
-		name: 'Kanna',
-		usage: 'kanna',
+		name: 'Gah',
+		usage: 'gah',
 		aliases: '',
-		description:
-			'Get a random image of Kobayashi Kanna from Kobayashi-san Chi no Maid Dragon: Kanna no Nichijou.'
+		description: 'Get a picture of gah.'
 	},
 	module: {
-		main: 'entertainment',
-		sub: 'images'
+		main: 'images',
+		sub: 'regular'
 	},
 	settings: {
 		dm: false,

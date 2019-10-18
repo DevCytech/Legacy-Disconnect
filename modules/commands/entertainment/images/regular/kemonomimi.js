@@ -4,9 +4,9 @@ module.exports.run = async (bot, message, args, tools, data) => {
 	// Code
 	let image = await superagent
 		.get('https://nekobot.xyz/api/image')
-		.query({ type: 'gah' });
+		.query({ type: 'kemonomimi' });
 	const e = new discord.RichEmbed()
-		.setTitle('Gah!')
+		.setTitle('Kemonomimi!')
 		.setColor(config.colors.secondary)
 		.setImage(image.body.message);
 	message.channel.send(e);
@@ -15,18 +15,19 @@ module.exports.run = async (bot, message, args, tools, data) => {
 
 module.exports.config = {
 	cmd: {
-		main: 'gah',
+		main: 'kemonomimi',
 		aliases: []
 	},
 	info: {
-		name: 'Gah',
-		usage: 'gah',
-		aliases: '',
-		description: 'Get a picture of gah.'
+		name: 'Kemonomimi',
+		usage: 'kemonomimi',
+		aliases:
+			'Get a random picture of humanoid characters that possess animal-like features.',
+		description: 'Get a random image of .'
 	},
 	module: {
-		main: 'entertainment',
-		sub: 'images'
+		main: 'images',
+		sub: 'regular'
 	},
 	settings: {
 		dm: false,

@@ -2,9 +2,9 @@ module.exports.run = async (bot, message, args, tools, data) => {
 	// Variables
 	const { config, discord, superagent } = tools;
 	// Code
-	let image = await superagent.get('https://some-random-api.ml/img/panda');
+	let image = await superagent.get('https://some-random-api.ml/img/birb');
 	const e = new discord.RichEmbed()
-		.setTitle('Random Panda!')
+		.setTitle('Random Bird!')
 		.setColor(config.colors.secondary)
 		.setImage(image.body.link);
 	message.channel.send(e);
@@ -13,17 +13,17 @@ module.exports.run = async (bot, message, args, tools, data) => {
 
 module.exports.config = {
 	cmd: {
-		main: 'panda',
+		main: 'bird',
 		aliases: []
 	},
 	info: {
-		name: 'Panda',
-		usage: 'panda',
+		name: 'Bird',
+		usage: 'bird',
 		aliases: '',
-		description: 'Get a random picture of a panda.'
+		description: 'Get a random picture of a bird.'
 	},
 	module: {
-		main: 'entertainment',
+		main: 'images',
 		sub: 'animals'
 	},
 	settings: {

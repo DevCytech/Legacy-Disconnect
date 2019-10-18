@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args, tools, data) => {
 		.setDescription(
 			`Your dice has landed on... **${Math.floor(Math.random() * 6) + 1}!**`
 		)
-		.setColor(config.colors.secondary);
+		.setColor(config.colors.game);
 	return message.channel.send(e);
 	// Functions
 };

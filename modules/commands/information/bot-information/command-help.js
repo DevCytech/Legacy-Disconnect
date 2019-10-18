@@ -8,8 +8,9 @@ module.exports.run = async (bot, message, args, tools, data) => {
 	};
 	let command =
 		bot.commands.get(args[0]) || bot.commands.get(bot.aliases.get(args[0]));
-	const { discord, config, improperUssageWarn, capitalize } = tools;
+	const { discord, config, improperUssageWarn, capitalize, errorWarn } = tools;
 	let e = new discord.RichEmbed().setColor(config.colors.main);
+
 	// Code
 	if (command) {
 		// Set Title and make sure that there isn't 2 helps in the title
@@ -46,6 +47,10 @@ module.exports.run = async (bot, message, args, tools, data) => {
 		// Send Message
 		return message.channel.send(e);
 	} else {
+		return errorWarn(
+			message,
+			"Please include a valid command or alias to get it's information"
+		);
 	}
 
 	// Functions

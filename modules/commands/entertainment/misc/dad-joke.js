@@ -1,32 +1,30 @@
 module.exports.run = async (bot, message, args, tools, data) => {
 	// Variables
-	const { config, discord, superagent } = tools;
+	const { discord, superagent, config } = tools;
+	let res = await superagent.get(`https://icanhazdadjoke.com/slack`);
 	// Code
-	let image = await superagent
-		.get('https://nekobot.xyz/api/image')
-		.query({ type: 'food' });
-	const e = new discord.RichEmbed()
-		.setTitle('Food!')
+	let e = new discord.RichEmbed()
+		.setTitle('Random Dad Joke!')
 		.setColor(config.colors.secondary)
-		.setImage(image.body.message);
-	message.channel.send(e);
+		.setDescription(res.body.attachments.map(a => a.text));
+	return message.channel.send(e);
 	// Functions
 };
 
 module.exports.config = {
 	cmd: {
-		main: 'food',
+		main: 'dad-joke',
 		aliases: []
 	},
 	info: {
-		name: 'Food',
-		usage: 'food',
+		name: 'Dad Joke',
+		usage: 'dad-joke',
 		aliases: '',
-		description: 'Get a random image of food.'
+		description: 'Get a random dad joke.'
 	},
 	module: {
 		main: 'entertainment',
-		sub: 'images'
+		sub: 'misc'
 	},
 	settings: {
 		dm: false,

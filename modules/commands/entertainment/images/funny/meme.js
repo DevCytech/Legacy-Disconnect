@@ -43,8 +43,8 @@ module.exports.config = {
 		description: 'Get a random meme from reddit. Thank you redditers.'
 	},
 	module: {
-		main: 'entertainment',
-		sub: 'images'
+		main: 'images',
+		sub: 'funny'
 	},
 	settings: {
 		dm: false,
