@@ -1,6 +1,7 @@
 module.exports.run = async (bot, message, args, tools, data) => {
 	// Variables
 	let newPrefix = args[0];
+	let oldPrefix = data.guild.main.prefix;
 	const { discord, config, guildStrut, improperUsageWarn } = tools;
 	// Code
 	if (!newPrefix) {
