@@ -1,7 +1,7 @@
 const { bot } = require('../../index');
 
 bot.on('reconnecting', async => {
-	const { config, discord } = bot.tools;
+	const { config, discord, getTime } = bot.tools;
 
 	const e = new discord.RichEmbed()
 		.setTitle('🎶 Reconnecting!')
@@ -14,13 +14,3 @@ bot.on('reconnecting', async => {
 	}
 	channel.send(e);
 });
-
-function getTime() {
-	let date = new Date();
-
-	if (date.getHours() >= 13) {
-		return date.getHours() - 12 + ':' + date.getMinutes() + ' PM';
-	} else {
-		return date.getHours() + ':' + date.getMinutes() + ' AM';
-	}
-}
