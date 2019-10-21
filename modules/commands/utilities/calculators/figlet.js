@@ -1,6 +1,7 @@
 module.exports.run = async (bot, message, args, tools, data) => {
 	// Variables
 	const { figlet, improperUsageWarn } = tools;
+
 	// Code
 	if (args.join(' ').length > 14) {
 		return improperUsageWarn(
@@ -23,7 +24,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 			message.channel.send('```' + data + '```');
 		});
 	}
-	// Functions
 };
 
 module.exports.config = {

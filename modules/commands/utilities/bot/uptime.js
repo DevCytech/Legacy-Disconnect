@@ -1,13 +1,13 @@
 module.exports.run = async (bot, message, args, tools, data) => {
 	// Variables
 	const { discord, config, getUptime } = tools;
+
 	// Code
 	const e = new discord.RichEmbed()
 		.setTitle(`${config.info.bot.name}'s Uptime`)
 		.setColor(config.colors.secondary)
 		.setDescription(getUptime(bot));
 	return message.channel.send(e);
-	// Functions
 };
 
 module.exports.config = {

@@ -23,6 +23,7 @@ module.exports.run = async (bot, message, args, tools, data) => {
 		'Outlook not so good',
 		'Very doubtful'
 	];
+
 	// Code
 	if (!args[0]) {
 		return improperUsageWarn('8-ball', message, data);
@@ -38,8 +39,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 			);
 		return message.channel.send(e);
 	}
-
-	// Functions
 };
 
 module.exports.config = {

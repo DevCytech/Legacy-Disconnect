@@ -24,7 +24,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 			`Disconnect 2019 // For bot stats use ${data.guild.main.prefix}stats`
 		);
 	message.channel.send(e);
-	// Functions
 };
 
 module.exports.config = {

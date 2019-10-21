@@ -1,24 +1,45 @@
 module.exports.run = async (bot, message, args, tools, data) => {
 	// Variables
 	const { config, discord, superagent, improperUsageWarn } = tools;
+
 	// Code
 	let song = args;
 	if (args.length !== 0) {
 		let lyrics = await superagent.get(
 			`https://some-random-api.ml/lyrics?title=${song}`
 		);
-		const e = new discord.RichEmbed()
-			.setTitle(`${lyrics.body.title} Lyrics`)
-			.setColor(config.colors.secondary)
-			.setDescription(
-				`[${lyrics.body.title} by ${lyrics.body.author}](${lyrics.body.links.genius})\n\n${lyrics.body.lyrics}`
-			)
-			.setImage(lyrics.body.thumbnail.genius);
-		return message.channel.send(e);
+		let count = {};
+		count.title = lyrics.body.title.split('').length;
+		count.author = lyrics.body.author.split('').length;
+		count.link = lyrics.body.links.genius.split('').length;
+		count.remove = 2048 - (count.title + count.author + 100);
+		count.lyrics = lyrics.body.lyrics.split('').length;
+		let i2 = Math.ceil(count.lyrics / count.remove),
+			i = 0;
+
+		const e = new discord.RichEmbed().setColor(config.colors.secondary);
+		while (i !== i2) {
+			e.setTitle(
+				`${lyrics.body.title} by ${lyrics.body.author} Lyrics (${i + 1}/${i2})`
+			);
+			e.setURL(lyrics.body.links.genius);
+			e.setThumbnail(lyrics.body.thumbnail.genius);
+			e.setDescription(
+				`${lyrics.body.lyrics
+					.substr(i * count.remove, (i + 1) * count.remove)
+					.replace(/[\n]/g, '\n\n')}`
+			);
+			message.channel.send(e);
+			i++;
+		}
 	} else {
-		return improperUsageWarn('lyrics', message, data);
+		return improperUsageWarn(
+			'lyrics',
+			message,
+			data,
+			'Please type in a valid song name.'
+		);
 	}
-	// Functions
 };
 
 module.exports.config = {

@@ -8,7 +8,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 		.setColor(config.colors.secondary)
 		.setDescription(`🏓 Pong... Discord Latency: \`${Math.floor(bot.ping)}\``);
 	return message.channel.send(e);
-	// Functions
 };
 
 module.exports.config = {

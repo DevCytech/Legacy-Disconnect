@@ -24,7 +24,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 		);
 	e.setFooter(`${role.name}'s Information`);
 	return message.channel.send(e);
-	// Functions
 };
 
 module.exports.config = {

@@ -1,6 +1,7 @@
 module.exports.run = async (bot, message, args, tools, data) => {
 	// Variables
 	const { config, discord } = tools;
+
 	// Code
 	let slots = ['🍎', '🍌', '🍒', '🍓', '🍈'];
 	let result1 = Math.floor(Math.random() * slots.length);
@@ -20,7 +21,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 		e.setDescription('You lost!');
 		message.channel.send(e);
 	}
-	// Functions
 };
 
 module.exports.config = {

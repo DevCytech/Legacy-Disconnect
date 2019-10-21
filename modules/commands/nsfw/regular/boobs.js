@@ -1,6 +1,7 @@
 module.exports.run = async (bot, message, args, tools, data) => {
 	// Variables
 	const { discord, config, errorWarn, superagent } = tools;
+
 	// Code
 	if (message.channel.nsfw == true) {
 		superagent.get('http://api.oboobs.ru/boobs/0/1/random').end((err, res) => {
@@ -15,7 +16,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 			'This command can only be used in a NSFW marked channel.'
 		);
 	}
-	// Functions
 };
 
 module.exports.config = {

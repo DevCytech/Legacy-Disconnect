@@ -13,21 +13,30 @@ module.exports.run = async (bot, message, args, tools, data) => {
 	if (user) {
 		if (user.id !== message.author.id) {
 			if (user.id !== message.guild.owner.id) {
-				member
-					.kick({
-						reason: `Was kicked by ${message.author.tag} ${
-							reason ? '' : ` for the reason: ${reason}.`
-						}`
-					})
-					.then(() => {
-						e.setDescription(
-							`${user.tag} has been kicked from the guild by ${message.author.tag}!`
-						);
-						return message.channel.send(e);
-					})
-					.catch(err => {
-						return errorWarn(message, err);
-					});
+				if (user.highestRole.position >= message.member.highestRole.position) {
+					return improperUsageWarn(
+						'kick',
+						message,
+						data,
+						'This user has a higher permission then you do.'
+					);
+				} else {
+					member
+						.kick({
+							reason: `Was kicked by ${message.author.tag} ${
+								reason ? '' : ` for the reason: ${reason}.`
+							}`
+						})
+						.then(() => {
+							e.setDescription(
+								`${user.tag} has been kicked from the guild by ${message.author.tag}!`
+							);
+							return message.channel.send(e);
+						})
+						.catch(err => {
+							return errorWarn(message, err);
+						});
+				}
 			} else {
 				return improperUsageWarn(
 					'kick',
@@ -52,7 +61,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 			'Please specify a user you would like to kick either by mentioning them or typing their ID'
 		);
 	}
-	// Functions
 };
 
 module.exports.config = {

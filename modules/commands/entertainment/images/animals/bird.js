@@ -8,7 +8,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 		.setColor(config.colors.secondary)
 		.setImage(image.body.link);
 	message.channel.send(e);
-	// Functions
 };
 
 module.exports.config = {

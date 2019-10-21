@@ -1,4 +1,12 @@
 module.exports.run = async (bot, message, args, tools, data) => {
+	// Functions
+	function checkDays(date) {
+		let now = new Date();
+		let diff = now.getTime() - date.getTime();
+		let days = Math.floor(diff / 86400000);
+		return days + (days == 1 ? ' day' : ' days') + ' ago';
+	}
+
 	// Variables
 	const { discord, config } = tools;
 	let user = message.mentions.users.first() || message.author;
@@ -11,12 +19,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 		idle: bot.emojis.get('628007152945987604'),
 		streaming: bot.emojis.get('628007153231331338')
 	};
-
-	let badges = ``,
-		nitro,
-		botStaff,
-		botOwner;
-
 	// Code
 	const e = new discord.RichEmbed()
 		.setTitle(`${user.username}'s Information`)
@@ -62,14 +64,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 		.addField('Roles', member.roles.map(roles => `${roles}`).join(', '), true)
 		.setFooter(user.tag + `'s Information`, user.avatarURL);
 	return message.channel.send(e);
-
-	// Functions
-	function checkDays(date) {
-		let now = new Date();
-		let diff = now.getTime() - date.getTime();
-		let days = Math.floor(diff / 86400000);
-		return days + (days == 1 ? ' day' : ' days') + ' ago';
-	}
 };
 
 module.exports.config = {

@@ -1,8 +1,17 @@
 module.exports.run = async (bot, message, args, tools, data) => {
+	// Functions
+	async function getInvite() {
+		let invite = await message.channel.createInvite({
+			maxAge: 86400,
+			maxUses: 1
+		});
+		return invite;
+	}
 	// Variables
 	const { discord, config } = tools;
-	// Code
 	const e = new discord.RichEmbed().setColor(config.colors.main);
+
+	// Code
 
 	if (
 		message.member.hasPermission('CREATE_INSTANT_INVITE') &&
@@ -23,14 +32,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 	);
 
 	return message.channel.send(e);
-	// Functions
-	async function getInvite() {
-		let invite = await message.channel.createInvite({
-			maxAge: 86400,
-			maxUses: 1
-		});
-		return invite;
-	}
 };
 
 module.exports.config = {

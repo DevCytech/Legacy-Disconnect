@@ -49,7 +49,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 				}
 			});
 	}
-	// Functions
 };
 
 module.exports.config = {

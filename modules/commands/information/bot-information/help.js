@@ -22,7 +22,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 			true
 		);
 	return message.channel.send(e);
-	// Functions
 };
 
 module.exports.config = {

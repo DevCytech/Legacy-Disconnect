@@ -1,13 +1,13 @@
 module.exports.run = async (bot, message, args, tools, data) => {
 	// Variables
 	const { discord, config } = tools;
-	// Code
 	let side = Math.floor(Math.random() * 2) + 1;
 
 	const e = new discord.RichEmbed()
 		.setTitle('Coin Flip...')
 		.setColor(config.colors.game);
 
+	// Code
 	if (side == '1') {
 		e.setDescription('The coin has landed on... HEADS!!!');
 		e.setThumbnail(
@@ -21,7 +21,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 		);
 		message.channel.send(e);
 	}
-	// Functions
 };
 
 module.exports.config = {

@@ -47,7 +47,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 	} else {
 		return improperUsageWarn('lyrics', message, data);
 	}
-	// Functions
 };
 
 module.exports.config = {

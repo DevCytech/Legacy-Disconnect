@@ -1,6 +1,7 @@
 module.exports.run = async (bot, message, args, tools, data) => {
 	// Variables
-	const { discord, config, fsn, canvas, superagent, errorWarn } = tools;
+	const { fsn, canvas, superagent, errorWarn } = tools;
+
 	// Code
 	const { Canvas } = canvas;
 	if (message.mentions.users.size < 1) {
@@ -27,7 +28,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 	} catch (error) {
 		throw error;
 	}
-	// Functions
 };
 
 module.exports.config = {

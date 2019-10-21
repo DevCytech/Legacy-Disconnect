@@ -52,8 +52,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 			"Please include a valid command or alias to get it's information"
 		);
 	}
-
-	// Functions
 };
 
 module.exports.config = {

@@ -1,6 +1,7 @@
 module.exports.run = async (bot, message, args, tools, data) => {
 	// Variables
 	const { discord, config } = tools;
+
 	// Code
 	const e = new discord.RichEmbed()
 		.setTitle(':game_die: Dice Roll')
@@ -9,7 +10,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 		)
 		.setColor(config.colors.game);
 	return message.channel.send(e);
-	// Functions
 };
 
 module.exports.config = {

@@ -1,6 +1,7 @@
 module.exports.run = async (bot, message, args, tools, data) => {
 	// Variables
 	const { discord, config, superagent, improperUsageWarn } = tools;
+
 	// Code
 	let words = args;
 
@@ -18,7 +19,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 	} else {
 		return improperUsageWarn('binary', message, data);
 	}
-	// Functions
 };
 
 module.exports.config = {

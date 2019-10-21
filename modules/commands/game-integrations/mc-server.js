@@ -33,7 +33,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 	} else {
 		return improperUsageWarn('mc-server', message, data);
 	}
-	// Functions
 };
 
 module.exports.config = {

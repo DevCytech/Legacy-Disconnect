@@ -60,7 +60,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 			'Please enter a word you would like urban dictionary to define.'
 		);
 	}
-	// Functions
 };
 
 module.exports.config = {

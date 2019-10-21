@@ -29,7 +29,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 			'Please include an achievement you would like to get. '
 		);
 	}
-	// Functions
 };
 
 module.exports.config = {

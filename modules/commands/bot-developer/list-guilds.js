@@ -1,7 +1,5 @@
 module.exports.run = async (bot, message, args, tools, data) => {
 	// Variables
-
-	// Code
 	let page = args[0];
 	let guilds;
 
@@ -17,6 +15,7 @@ module.exports.run = async (bot, message, args, tools, data) => {
 		)} - ${guild.members.size.toLocaleString()} Members`;
 	});
 
+	// Code
 	if (page == 1) {
 		guilds = guildArray.slice(0, page * 100);
 	} else {
@@ -28,7 +27,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 		)} = \n\n${guilds.join('\n')}`,
 		{ code: 'asciidoc' }
 	);
-	// Functions
 };
 
 module.exports.config = {

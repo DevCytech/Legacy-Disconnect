@@ -9,7 +9,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 		.setDescription(advice.slip.advice)
 		.setColor(config.colors.secondary);
 	return message.channel.send(e);
-	// Functions
 };
 
 module.exports.config = {

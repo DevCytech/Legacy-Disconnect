@@ -12,7 +12,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 		.setDescription(res.body.text)
 		.setFooter(`Fact ID: ${res.body.id}`);
 	return message.channel.send(e);
-	// Functions
 };
 
 module.exports.config = {

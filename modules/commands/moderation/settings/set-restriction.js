@@ -26,6 +26,7 @@ module.exports.run = async (bot, message, args, tools, data) => {
 		1: 'Permissions and Roles Required',
 		2: 'Roles Required Only'
 	};
+
 	// Code
 	if (choices.includes(args[0])) {
 		let val = convert[args[0]];

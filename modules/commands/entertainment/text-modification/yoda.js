@@ -37,7 +37,7 @@ module.exports.config = {
 	},
 	module: {
 		main: 'entertainment',
-		sub: 'test-modification'
+		sub: 'text-modification'
 	},
 	settings: {
 		dm: false,

@@ -1,21 +1,4 @@
 module.exports.run = async (bot, message, args, tools, data) => {
-	// Variables
-	const { config, discord, superagent, improperUsageWarn } = tools;
-	// Code
-	let username = args;
-	if (args.length !== 0) {
-		let history = await superagent.get(
-			`https://some-random-api.ml/mc?username=${username}`
-		);
-		history = history.body;
-		const e = new discord.RichEmbed()
-			.setTitle(`${history.username}'s Minecraft Username History`)
-			.setColor(config.colors.secondary)
-			.setDescription(getDesc(history));
-		return message.channel.send(e);
-	} else {
-		return improperUsageWarn('lookup-minecraft-username', message, data);
-	}
 	// Functions
 	function getDesc(history) {
 		if (history.name_history.length === 1) {
@@ -31,6 +14,25 @@ module.exports.run = async (bot, message, args, tools, data) => {
 			});
 			return desc;
 		}
+	}
+
+	// Variables
+	const { config, discord, superagent, improperUsageWarn } = tools;
+
+	// Code
+	let username = args;
+	if (args.length !== 0) {
+		let history = await superagent.get(
+			`https://some-random-api.ml/mc?username=${username}`
+		);
+		history = history.body;
+		const e = new discord.RichEmbed()
+			.setTitle(`${history.username}'s Minecraft Username History`)
+			.setColor(config.colors.secondary)
+			.setDescription(getDesc(history));
+		return message.channel.send(e);
+	} else {
+		return improperUsageWarn('lookup-minecraft-username', message, data);
 	}
 };
 

@@ -1,6 +1,7 @@
 module.exports.run = async (bot, message, args, tools, data) => {
 	// Variables
 	const { discord, config, superagent, capitalize } = tools;
+
 	// Code
 	let res = await superagent.get('http://www.rrrather.com/botapi');
 	const e = new discord.RichEmbed()
@@ -14,7 +15,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 			'https://www.logolynx.com/images/logolynx/80/801614bad4ce983db96dc6e07b22ac0f.png'
 		);
 	return message.channel.send(e);
-	// Functions
 };
 
 module.exports.config = {

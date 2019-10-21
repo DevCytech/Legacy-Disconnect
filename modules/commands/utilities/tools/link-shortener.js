@@ -1,6 +1,7 @@
 module.exports.run = async (bot, message, args, tools, data) => {
 	// Variables
 	const { discord, config, isgd, improperUsageWarn } = tools;
+
 	// Code
 	if (!args[0]) {
 		return improperUsageWarn('link-shorten', message, data);
@@ -16,7 +17,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 			return message.channel.send(e);
 		});
 	}
-	// Functions
 };
 
 module.exports.config = {

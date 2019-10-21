@@ -1,24 +1,27 @@
 module.exports.run = async (bot, message, args, tools, data) => {
 	// Variables
-	// Code
 	const emojiList = message.guild.emojis
 		.map((e, x) => x + ' = ' + e + ' | ' + e.name)
 		.join('\n');
-	message.channel.send('>>> ' + emojiList);
+	// Code
 
-	// Functions
+	if (emojiList == '') {
+		return message.channel.send('This guild has no emojis.');
+	}
+
+	return message.channel.send('>>> ' + emojiList);
 };
 
 module.exports.config = {
 	cmd: {
 		main: 'emojis',
-		aliases: []
+		aliases: ['guild-emojis']
 	},
 	info: {
-		name: '',
-		usage: '',
-		aliases: '',
-		description: ''
+		name: 'Guild Emojis',
+		usage: 'emojis',
+		aliases: 'guild-emojis',
+		description: 'Get a list of all the guilds emojis.'
 	},
 	module: {
 		main: 'information',

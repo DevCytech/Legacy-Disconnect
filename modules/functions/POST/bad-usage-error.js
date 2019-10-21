@@ -6,13 +6,17 @@ module.exports = function(cmd, message, data, text) {
 	const e = new discord.RichEmbed()
 		.setTitle('Improper Ussage:')
 		.setDescription(
-			`__Command Usage:__ ${data.guild.main.prefix}${command.config.info.usage}`
+			`__Command Usage:__ ${data.guild.main.prefix}${
+				bot.commands.get(cmd).config.info.usage
+			}`
 		)
 		.setFooter(`An error has occurred at ${getTime()}`)
 		.setColor(config.colors.error);
 	if (text) {
 		e.setDescription(
-			`__Command Ussage:__ ${data.guild.main.prefix}${command.config.info.usage} \n__Additional Information:__ ${text}`
+			`__Command Ussage:__ ${data.guild.main.prefix}${
+				bot.commands.get(cmd).config.info.usage
+			} \n__Additional Information:__ ${text}`
 		);
 	}
 	return message.channel.send(e);

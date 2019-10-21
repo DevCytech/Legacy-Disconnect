@@ -2,13 +2,13 @@ module.exports.run = async (bot, message, args, tools, data) => {
 	// Variables
 	const { discord, config, superagent } = tools;
 	let res = await superagent.get('https://some-random-api.ml/facts/dog');
+
 	// Code
 	const e = new discord.RichEmbed()
 		.setTitle('Fun Dog Fact.')
 		.setColor(config.colors.secondary)
 		.setDescription(res.body.fact);
 	return message.channel.send(e);
-	// Functions
 };
 
 module.exports.config = {

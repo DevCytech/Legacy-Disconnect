@@ -3,6 +3,7 @@ module.exports.run = async (bot, message, args, tools, data) => {
 	let newPrefix = args[0];
 	let oldPrefix = data.guild.main.prefix;
 	const { discord, config, guildStrut, improperUsageWarn } = tools;
+
 	// Code
 	if (!newPrefix) {
 		return improperUsageWarn(
@@ -28,7 +29,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 				message.channel.send(success);
 			});
 	}
-	// Functions
 };
 
 module.exports.config = {

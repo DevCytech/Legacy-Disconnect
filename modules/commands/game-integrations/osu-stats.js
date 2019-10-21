@@ -75,8 +75,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 			);
 		return message.channel.send(e);
 	}
-
-	// Functions
 };
 
 module.exports.config = {

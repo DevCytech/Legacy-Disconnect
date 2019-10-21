@@ -10,7 +10,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 		.setColor(config.colors.secondary)
 		.setImage(image.body.message);
 	message.channel.send(e);
-	// Functions
 };
 
 module.exports.config = {

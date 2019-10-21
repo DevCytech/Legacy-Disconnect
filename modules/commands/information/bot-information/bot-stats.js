@@ -9,13 +9,12 @@ module.exports.run = async (bot, message, args, tools, data) => {
 			'These stats are true for the moment and may change at any point and time.'
 		)
 		.addField('Version', `V${config.settings.version}`, true)
-		.addField('Guilds', bot.guilds.size, true)
-		.addField('Channels', bot.channels.size, true)
-		.addField('Users', bot.users.size, true)
-		.addField('Emojis', bot.emojis.size, true)
-		.addField('Commands', bot.commands.size, true);
+		.addField('Guilds', parseInt(bot.guilds.size).toLocaleString(), true)
+		.addField('Channels', parseInt(bot.channels.size).toLocaleString(), true)
+		.addField('Users', parseInt(bot.users.size).toLocaleString(), true)
+		.addField('Emojis', parseInt(bot.emojis.size).toLocaleString(), true)
+		.addField('Commands', parseInt(bot.commands.size).toLocaleString(), true);
 	return message.channel.send(e);
-	// Functions
 };
 
 module.exports.config = {

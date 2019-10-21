@@ -13,7 +13,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 	message.channel.bulkDelete(deleteCount).catch(err => {
 		return errorWarn(message, err);
 	});
-	// Functions
 };
 
 module.exports.config = {

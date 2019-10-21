@@ -28,7 +28,6 @@ module.exports.run = async (bot, message, args, tools, data) => {
 			`Meme from the ${subreddit} subreddit. Some image may not work do to the wrong format!`
 		);
 	return message.channel.send(e);
-	// Functions
 };
 
 module.exports.config = {
