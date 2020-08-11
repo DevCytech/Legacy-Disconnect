@@ -21,4 +21,4 @@
    Feel like we are missing something, found a bug, have a question, or want to thank the developers, join our support server and we would like to hear from you. 
 
 ## Getting Started
-  To get started please [invite](https://bit.ly/InviteDisconnect) the bot to your server if you havent already and type `!help` toget information about the bot and some commands you may use to better assist you.
+  To get started please [invite](https://bit.ly/invDisconnect) the bot to your server if you havent already and type `!help` toget information about the bot and some commands you may use to better assist you.
