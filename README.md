@@ -1,6 +1,5 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/04417f2cb9334a0e916520a3c77ca6f7)](https://www.codacy.com/manual/CytechYT/Disconnect-Rebuilt?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=CytechYT/Disconnect-Rebuilt&amp;utm_campaign=Badge_Grade)
-
-# Disconnect
+# Disconnect -- DEPRICIATED!!!
+Please check out the newest version of Disconnect.
 ## About
    Disconnect is a year old project started by Cytech. Originally created to be a multi use discord bot for all needs. Though this task seems to have been cut short and the new focus has been put on entertainment and information. Now with a more focused path for Disconnect the developers (Cytech) have jumped right back onto the ship and are constantly working and monitoring the bot to make sure its constantly on the top of its game. While taking the extra time to add more features and bringing more games to Disconnect. 
 
