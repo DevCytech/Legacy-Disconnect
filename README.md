@@ -1,5 +1,6 @@
 # Disconnect -- DEPRICIATED!!!
-Please check out the newest version of Disconnect.
+Please check out the newest version of Disconnect [here](https://github.com/DisconnectDiscordBot/Disconnect-V2).
+
 ## About
    Disconnect is a year old project started by Cytech. Originally created to be a multi use discord bot for all needs. Though this task seems to have been cut short and the new focus has been put on entertainment and information. Now with a more focused path for Disconnect the developers (Cytech) have jumped right back onto the ship and are constantly working and monitoring the bot to make sure its constantly on the top of its game. While taking the extra time to add more features and bringing more games to Disconnect. 
 
